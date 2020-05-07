@@ -231,7 +231,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
                         .mapToChatTranscriptFieldName(transcriptField)
                         .build(label, label);
                 
-                if (value != 'empty') {
+                if (value != "empty") {
                     newTextField.setValue(value);
                 }
                 
