@@ -200,6 +200,9 @@ func hexStringToUIColor(_ hex: String) -> UIColor {
             newTextField.isRequired = isRequired
             newTextField.keyboardType = UIKeyboardType(rawValue: keyboardType)!
             newTextField.autocorrectionType = UITextAutocorrectionType(rawValue: autocorrectionType)!
+            if value != "empty" {
+                newTextField.initialValue = value
+            }
             if transcriptField != nil {
                 newTextField.transcriptFields.add(transcriptField!)
             }

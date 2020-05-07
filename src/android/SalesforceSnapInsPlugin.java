@@ -228,6 +228,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
                 PreChatTextInputField newTextField = new PreChatTextInputField.Builder()
                         .required(isRequired)
                         .inputType(this.mapKeyboardType(keyboardType))
+                        .initialValue(value)
                         .mapToChatTranscriptFieldName(transcriptField)
                         .build(label, label);
                 this.liveAgentChatUserData.add(newTextField);
