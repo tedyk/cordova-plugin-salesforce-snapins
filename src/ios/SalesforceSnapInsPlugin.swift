@@ -200,6 +200,9 @@ func hexStringToUIColor(_ hex: String) -> UIColor {
             newTextField.isRequired = isRequired
             newTextField.keyboardType = UIKeyboardType(rawValue: keyboardType)!
             newTextField.autocorrectionType = UITextAutocorrectionType(rawValue: autocorrectionType)!
+            if value != "empty" {
+                newTextField.initialValue = value
+            }
             if transcriptField != nil {
                 newTextField.transcriptFields.add(transcriptField!)
             }
@@ -304,7 +307,7 @@ func hexStringToUIColor(_ hex: String) -> UIColor {
         let chat = ServiceCloud.shared().chatCore!
         let config = self.liveAgentChatConfig!
         let commandDelegate = self.commandDelegate!
-        chat.determineAvailability(with: config, completion: { (error: Error?, available: Bool) in
+        chat.determineAvailability(with: config, completion: { (error: Error?, available: Bool, estimatedWaitTime: TimeInterval) in
             var result: CDVPluginResult
             if (error != nil) {
                 result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "error")

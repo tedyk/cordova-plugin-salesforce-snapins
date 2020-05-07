@@ -230,6 +230,11 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
                         .inputType(this.mapKeyboardType(keyboardType))
                         .mapToChatTranscriptFieldName(transcriptField)
                         .build(label, label);
+                
+                if (value != "empty") {
+                    newTextField.setValue(value);
+                }
+                
                 this.liveAgentChatUserData.add(newTextField);
                 break;
 
@@ -286,6 +291,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
 
     private boolean clearPrechatFields(CallbackContext callbackContext) {
         this.liveAgentChatUserData.clear();
+        callbackContext.success();
         return true;
     }
 
