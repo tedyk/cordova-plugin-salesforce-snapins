@@ -51,7 +51,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 			<source url="https://github.com/CocoaPods/Specs.git" />
 			<source url="https://github.com/goinstant/pods-specs-public" />
 		</pods-config>
-		<pod name="ServiceSDK" spec="218.0.1" />
+		<pod name="ServiceSDK" spec="224.0.0" />
 		<config-file parent="/*" target="config.xml">
 			<feature name="SalesforceSnapInsPlugin">
 				<param name="ios-package" value="SalesforceSnapInsPlugin"/>
