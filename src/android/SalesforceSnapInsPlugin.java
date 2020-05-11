@@ -168,6 +168,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
     private boolean addPrechatField(JSONObject field, CallbackContext callbackContext) {
         String type;
         String label;
+        String displayLabel;
         String value;
         boolean isRequired;
         int keyboardType;
