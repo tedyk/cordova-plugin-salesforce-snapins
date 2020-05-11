@@ -187,6 +187,7 @@ func hexStringToUIColor(_ hex: String) -> UIColor {
 
         let type = field["type"] as? String ?? "text"
         let label = field["label"] as? String ?? "Label"
+        let displayLabel = field["displayLabel"] as? String ?? nil
         let value = field["value"] as? String ?? "empty"
         let transcriptField = field["transcriptField"] as? String ?? nil
         let isRequired = field["required"] as? Bool ?? false
@@ -200,6 +201,10 @@ func hexStringToUIColor(_ hex: String) -> UIColor {
             newTextField.isRequired = isRequired
             newTextField.keyboardType = UIKeyboardType(rawValue: keyboardType)!
             newTextField.autocorrectionType = UITextAutocorrectionType(rawValue: autocorrectionType)!
+            if displayLabel != nil {
+                newTextField.displayLabel = displayLabel
+            }
+
             if value != "empty" {
                 newTextField.initialValue = value
             }

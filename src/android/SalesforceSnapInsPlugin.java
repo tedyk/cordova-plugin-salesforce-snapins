@@ -188,6 +188,12 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
         }
 
         try {
+            displayLabel = (String) field.get("displayLabel");
+        } catch (JSONException e) {
+            displayLabel = label;
+        }
+
+        try {
             value = (String) field.get("value");
         } catch (JSONException e) {
             value = "empty";
@@ -229,7 +235,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
                         .required(isRequired)
                         .inputType(this.mapKeyboardType(keyboardType))
                         .mapToChatTranscriptFieldName(transcriptField)
-                        .build(label, label);
+                        .build(displayLabel, label);
                 
                 if (value != "empty") {
                     newTextField.setValue(value);
