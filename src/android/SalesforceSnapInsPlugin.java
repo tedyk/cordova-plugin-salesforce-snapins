@@ -168,6 +168,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
     private boolean addPrechatField(JSONObject field, CallbackContext callbackContext) {
         String type;
         String label;
+        String displayLabel;
         String value;
         boolean isRequired;
         int keyboardType;
@@ -185,6 +186,12 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
             label = (String) field.get("label");
         } catch (JSONException e) {
             label = "Label";
+        }
+
+        try {
+            displayLabel = (String) field.get("displayLabel");
+        } catch (JSONException e) {
+            displayLabel = label;
         }
 
         try {
@@ -229,7 +236,7 @@ public class SalesforceSnapInsPlugin extends CordovaPlugin {
                         .required(isRequired)
                         .inputType(this.mapKeyboardType(keyboardType))
                         .mapToChatTranscriptFieldName(transcriptField)
-                        .build(label, label);
+                        .build(displayLabel, label);
                 
                 if (value != "empty") {
                     newTextField.setValue(value);
